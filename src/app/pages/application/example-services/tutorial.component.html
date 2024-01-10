@@ -1,0 +1,13 @@
+<h1>listas</h1>
+
+<!-- Agrega esto donde quieras mostrar las listas -->
+<div *ngFor="let lista of getPageItems()">
+  <a [href]="lista.link" target="_blank">{{ lista.title.rendered }}</a>
+</div>
+
+<!-- Agrega el paginador -->
+<div>
+  <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">Anterior</button>
+  <span>Página {{ currentPage }}</span>
+  <button (click)="currentPage = currentPage + 1" [disabled]="getPageItems().length < itemsPerPage">Siguiente</button>
+</div>
